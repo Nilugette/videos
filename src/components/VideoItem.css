@@ -6,4 +6,5 @@
 
 .video-item.item img {
     max-width: 100px;
+    border-radius:10px;
 }
