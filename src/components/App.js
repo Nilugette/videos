@@ -1,15 +1,28 @@
 import React from 'react';
+import api from '../api/youtube'
 import SearchBar from './SearchBar'
+import VideoList from './VideoList'
 
 class App extends React.Component {
 
-  render() {
-    return (
-      <div className="ui container">
-          <SearchBar />
-      </div>
-    )
-  }
+    state = { videos: []}
+
+    onTermSubmit = async term => {
+        const response = await api.get('/search', {
+          params: { q: term }
+        })
+        console.log(response)
+        this.setState({ videos: response.data.items})
+      }
+
+    render() {
+        return (
+        <div className="ui container">
+            <SearchBar onFormSubmit={this.onTermSubmit} />
+            <VideoList videos= {this.state.videos}/>
+        </div>
+        )
+    }
 }
 
 
