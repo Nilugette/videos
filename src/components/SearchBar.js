@@ -17,7 +17,7 @@ class SearchBar extends React.Component {
             <div className="ui segment search-bar">
                 <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
-                        <label>Video Search</label>
+                        <label>Search for a video</label>
                         <input 
                             type="text" 
                             onChange={this.onInputChange}
